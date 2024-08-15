@@ -1,0 +1,26 @@
+<!-- diary/templates/diary/travel_detail.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Детали путешествия</title>
+</head>
+<body>
+    <h1>{{ travel.location }}</h1>
+    {% if travel.image %}
+    <img src="{{ travel.image.url }}" alt="{{ travel.location }}" width="300">
+    {% endif %}
+    <p><strong>Широта:</strong> {{ travel.latitude }}</p>
+    <p><strong>Долгота:</strong> {{ travel.longitude }}</p>
+    <p><strong>Стоимость:</strong> {{ travel.cost }}</p>
+    <p><strong>Места культурного наследия:</strong> {{ travel.cultural_heritage_sites }}</p>
+    <p><strong>Места для посещения:</strong> {{ travel.places_to_visit }}</p>
+    <p><strong>Оценка удобства:</strong> {{ travel.convenience_rating }}</p>
+    <p><strong>Оценка безопасности:</strong> {{ travel.safety_rating }}</p>
+    <p><strong>Оценка населенности:</strong> {{ travel.population_density_rating }}</p>
+    <p><strong>Оценка растительности:</strong> {{ travel.vegetation_rating }}</p>
+    <a href="{% url 'index' %}">Назад на главную</a>
+</body>
+</html>

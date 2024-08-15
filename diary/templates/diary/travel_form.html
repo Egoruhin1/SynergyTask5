@@ -1,0 +1,31 @@
+<!-- templates/travel_diary/travel_form.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Travel - Travel Diary</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Travel Diary</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'add_travel' %}">Add Travel</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Add New Travel Entry</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Save</button>
+        </form>
+        <a href="{% url 'index' %}">Cancel</a>
+    </main>
+</body>
+</html>

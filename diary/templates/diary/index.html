@@ -1,0 +1,38 @@
+<!-- diary/templates/diary/index.html -->
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Diary</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Travel Diary</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'add_travel' %}">Add Travel</a></li>
+                <li><a href="{% url 'register' %}">Register</a></li>
+                <li><a href="{% url 'login' %}">Log In</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Travel Entries</h2>
+        <ul>
+            {% for travel in travels %}
+                <li>
+                    <a href="{% url 'travel_detail' travel.pk %}">{{ travel.location }}</a>
+                </li>
+            {% empty %}
+                <li>No travel entries available.</li>
+            {% endfor %}
+        </ul>
+    </main>
+</body>
+</html>
